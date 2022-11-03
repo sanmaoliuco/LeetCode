@@ -5,7 +5,7 @@
 # @File : 337_打家劫舍.py
 # @Software: PyCharm
 
-
+from functools import lru_cache
 
 class TreeNode:
     def __init__(self, val = 0, left = None, right = None):
@@ -45,12 +45,16 @@ class Tree():
     #     self.post_order(node.right)
     #     print(node.val, end='  ')
 
+    # 记忆化搜索
+    # memory = {}
+    @lru_cache(None)
     def rob(self, Node):
         if Node is None:
             return 0
         if Node.left == None and Node.right == None:
             return Node.val
-
+        # if self.memory.get(Node) is not None:
+        #     return self.memory[Node]
         val1 = Node.val
         if Node.left:
             val1 += self.rob(Node.left.left) + self.rob(Node.left.right)
@@ -58,8 +62,8 @@ class Tree():
             val1 += self.rob(Node.right.right) + self.rob(Node.right.left)
 
         val2 = self.rob(Node.left) + self.rob(Node.right)
-
-        print(max(val1, val2))
+        # self.memory[Node] = max(val1, val2)
+        return max(val1, val2)
 
 if __name__ == '__main__':
     t = Tree()
