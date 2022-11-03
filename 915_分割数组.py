@@ -34,11 +34,8 @@ def partition_Dis(nums):
 
 
 nums = [8,6,5,0,3,]
-print(partition_Dis(nums))
-print(partition_Disjoint(nums))
-
-
-
+# print(partition_Dis(nums))
+# print(partition_Disjoint(nums))
 
 
 

@@ -31,8 +31,8 @@ def unique_path(m,n):
 print(unique_path(3, 5))
 
 
-# dp = [[1]*7] + [[1] + [0] * 6 for _ in range(2)]
-# print(dp)
+dp = [[1]*7] + [[1] + [0] * 6 for _ in range(2)]
+print(dp)
 
 
 

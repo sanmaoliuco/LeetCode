@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Time : 2021/10/13 9:37
 # @Author : San_mao_liu
-# @File : 63_不同路劲II.py
+# @File : 63_不同路径II.py
 # @Software: PyCharm
 
 
@@ -21,7 +21,7 @@ def uniquePathWithObstacles(obstacleGrid):
     for i in range(1,m):
         for j in range(1,n):
             if obstacleGrid[i][j] == 1:
-                dp[i][j] = 0
+                continue
             else:
                 dp[i][j] = dp[i-1][j] + dp[i][j-1]
 
@@ -49,7 +49,24 @@ def uniquePath_WithObstacles(obstacleGrid):
 
     return dp[-1][-1]
 
-print(uniquePath_WithObstacles(obstacle))
+# print(uniquePath_WithObstacles(obstacle))
+
+def unique_path(obstacleGrid):
+    m = len(obstacleGrid[0])
+    dp = [0] * m
+    dp[0] = 1
+    for row in obstacleGrid:
+        for j in range(m):
+            if row[j] == 1:
+                dp[j] = 0
+            elif j > 0:
+                dp[j] += dp[j-1]
+
+    return dp[-1]
+
+print(unique_path(obstacle))
+
+
 
 
 
