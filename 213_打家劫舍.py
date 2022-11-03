@@ -28,13 +28,14 @@ def rob_1(nums):
 
     a = [[0, 0] for _ in range(len(nums))]
     res1 = res2 = 0
+    # 偷第一间房，不偷最后一间房，下标范围[0, n-2]
     for i in range(0, len(nums) - 1):
         a[0][0] = 0
         a[0][1] = nums[0]
         a[i][0] = max(a[i - 1][0], a[i - 1][1])
         a[i][1] = a[i-1][0] + nums[i]
         res1 = max(a[len(nums) - 2][0], a[len(nums) - 2][1])
-
+    # 不偷第一间房，偷最后一间房，下标范围[1, n - 1]
     for i in range(1, len(nums)):
         a[1][0] = 0
         a[1][1] = nums[1]
