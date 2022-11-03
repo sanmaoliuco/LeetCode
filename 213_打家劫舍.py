@@ -19,7 +19,7 @@ def rob(nums):
 
     return max(a[len(nums) - 1][0], a[len(nums) - 1][1])
 
-
+# 二维dp
 def rob_1(nums):
     if nums == None or len(nums) == 0:
         return 0
@@ -45,9 +45,31 @@ def rob_1(nums):
 
     return max(res1, res2)
 
-nums = [1,2,3]
-print(rob_1(nums))
 
+# 一维dp
+def rob_2(nums):
+    def my_rob(nums):
+        pre = cur = 0
+        for num in nums:
+            cur, pre = max(pre + num, cur), cur
+        return cur
+    return max(my_rob(nums[:-1]), my_rob(nums[1:])) if len(nums) != 1 else nums[0]
+
+def rob_3(nums):
+    def my_rob1(nums):
+        now = pre = 0
+        for n in nums:
+            now, pre = max(pre + n, now), now
+        return now
+    return max(my_rob1(nums[len(nums) != 1 : ]), my_rob1(nums[:-1]))
+
+
+
+nums = [1,2,3]
+# print(nums[len(nums) != 1:])
+# print(len(nums) != 1)
+# print(rob_2(nums))
+print(rob_3(nums))
 
 
 
