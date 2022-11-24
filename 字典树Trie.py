@@ -54,12 +54,13 @@ class Trie(object):
             node = node[char]
         return True
 
-
-
-
-
-
-
+trie = Trie()
+print(trie.insert("apple"))
+print(trie.search("apple"))
+trie.search("app")
+trie.startsWith("app")
+trie.insert("app")
+trie.search("app")
 
 
 def fib(n):
@@ -73,7 +74,7 @@ def fib(n):
 
     return dp[n]
 
-print(fib(4))
+# print(fib(4))
 
 
 
