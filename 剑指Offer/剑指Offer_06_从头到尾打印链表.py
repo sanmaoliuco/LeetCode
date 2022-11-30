@@ -32,14 +32,28 @@ if __name__ == '__main__':
     while link_list.head:
         s.append(link_list.head.val)
         link_list.head = link_list.head.next
-    print(s)
+    # print(s)
+
+    # 复制链表
+    def copy_link_list(head):
+        cur = head
+        dum = pre = ListNode(0)
+        while cur:
+            node = ListNode(cur.val)   # 复制节点cur
+            pre.next = node            # 新链表的前驱节点 -> 当前节点
+            cur = cur.next             # 遍历下一节点
+            pre = node                 # 保存当前节点
+
+        return dum.next.val
+
+    print(copy_link_list(node1))
 
     # 递归
     def reversePrint(head):
 
         return reversePrint(head.next) + [head.val] if head else []
 
-    print(reversePrint(node1))
+    # print(reversePrint(node1))
 
     # 辅助栈
     def reverse_print(head):
@@ -50,7 +64,7 @@ if __name__ == '__main__':
 
         return s[::-1]
 
-    print(reverse_print(node1))
+    # print(reverse_print(node1))
 
 
 
