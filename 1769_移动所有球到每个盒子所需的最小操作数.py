@@ -31,9 +31,23 @@ def min_operations(boxes):
 
     return res
 
+def min_Operations(boxes):
+    n = len(boxes)
+    left, right = [0] * n, [0] * n
+    cur = 0
+    for i, c in enumerate(boxes):
+        left[i], cur = left[i - 1] + cur, cur + (c == '1')
+    cur = int(boxes[-1] == '1')
+    for i in range(n - 2, -1, -1):
+        right[i], cur = right[i + 1] + cur, cur + (boxes[i] == '1')
+
+    return [left[i] + right[i] for i in range(n)]
+
+
 boxes = '110'
 # print(minOperations(boxes))
-print(min_operations(boxes))
+# print(min_operations(boxes))
+print(min_Operations(boxes))
 
 
 
