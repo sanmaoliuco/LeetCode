@@ -36,9 +36,10 @@ if __name__ == '__main__':
         curr = head
         while curr:
             next = curr.next
+            curr.next = prev
             prev = curr
             curr = next
-        return prev
+        return prev.val
 
     def reverse_list(head):
         if head == None or head.next == None:
@@ -48,7 +49,7 @@ if __name__ == '__main__':
         head.next.next = head
         head.next = None
 
-        return new_head
+        return new_head.next.val
 
     print(reverseList(node1))
     print(reverse_list(node1))

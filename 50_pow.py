@@ -18,11 +18,11 @@ def myPow(x, n):
 x = 2
 n = 10
 
-# print(myPow(x, n))
+print(myPow(x, n))
 
 
-a = 'bac'
-b = 'abc'
-# list(a).sort()
-print(sorted(a))
-print(list(b))
+# a = 'bac'
+# b = 'abc'
+# # list(a).sort()
+# print(sorted(a))
+# print(list(b))
